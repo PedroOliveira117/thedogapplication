@@ -10,6 +10,6 @@ import retrofit2.http.Query
  */
 interface DogBreedsApi {
 
-    @GET("/v1/breeds?limit=24")
-    suspend fun getDogBreeds(@Query("page") page: Int): ArrayList<Dog> = arrayListOf()
+    @GET("/v1/breeds")
+    suspend fun getDogBreeds(@Query("limit") limit: Int, @Query("page") page: Int): ArrayList<Dog> = arrayListOf()
 }

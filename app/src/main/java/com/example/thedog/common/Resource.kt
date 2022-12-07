@@ -1,4 +1,4 @@
-package com.example.thedog.Utils
+package com.example.thedog.common
 
 /**
  * Created by pedrooliveira on 07/12/2022

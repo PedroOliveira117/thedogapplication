@@ -1,6 +1,6 @@
 package com.example.thedog.model.repo
 
-import com.example.thedog.Utils.Resource
+import com.example.thedog.common.Resource
 import com.example.thedog.model.data.Dog
 import com.example.thedog.model.interfaces.DogBreedsApi
 import java.io.IOException
@@ -11,9 +11,11 @@ import java.io.IOException
  */
 class DogBreedsRepository(private val dogBreedsApi: DogBreedsApi) {
 
-    suspend fun getDogBreeds(page: Int): Resource<ArrayList<Dog>> {
+    private val DOG_BREEDS_REQUEST_LIMIT = 24
+
+    suspend fun getDogBreeds(limit: Int = DOG_BREEDS_REQUEST_LIMIT, page: Int): Resource<ArrayList<Dog>> {
         val response = try {
-            dogBreedsApi.getDogBreeds(page)
+            dogBreedsApi.getDogBreeds(limit, page)
         } catch (e: IOException) {
             return Resource.Error("An error occurred while getting dog breed")
         }
