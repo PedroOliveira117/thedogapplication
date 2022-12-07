@@ -1,4 +1,4 @@
-package com.example.thedog.doglist
+package com.example.thedog.view.doglist
 
 import android.os.Bundle
 import android.view.View

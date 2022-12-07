@@ -4,9 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.thedog.databinding.HomeActivityBinding
-import com.example.thedog.doglist.DogListFragment
-import com.example.thedog.dogsearch.DogSearchFragment
-
+import com.example.thedog.view.doglist.DogListFragment
+import com.example.thedog.view.dogsearch.DogSearchFragment
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: HomeActivityBinding
