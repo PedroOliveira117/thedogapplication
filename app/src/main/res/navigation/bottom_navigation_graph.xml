@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_navigation_graph"
+    app:startDestination="@+id/item_list">
+
+    <fragment
+        android:id="@+id/item_list"
+        android:name="com.example.thedog.view.doglist.fragments.DogBreedsPagerFragment"
+        android:label="@string/bottom_nav_list_item" />
+
+    <fragment
+        android:id="@+id/item_search"
+        android:name="com.example.thedog.view.dogsearch.DogSearchFragment"
+        android:label="@string/bottom_nav_search_item"/>
+
+</navigation>

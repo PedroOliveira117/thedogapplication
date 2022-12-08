@@ -1,4 +1,4 @@
-package com.example.thedog.view.doglist
+package com.example.thedog.view.doglist.adapters
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -19,7 +19,7 @@ import com.example.thedog.model.data.Dog
  * Created by pedrooliveira on 07/12/2022
  * All rights reserved GoodBarber
  */
-class DogBreedsListAdapter: RecyclerView.Adapter<DogBreedsListAdapter.DogBreedsViewHolder>() {
+open class DogBreedsListAdapter: RecyclerView.Adapter<DogBreedsListAdapter.DogBreedsViewHolder>() {
 
     var dogBreedsList = ArrayList<Dog>(arrayListOf())
 
@@ -59,5 +59,4 @@ class DogBreedsListAdapter: RecyclerView.Adapter<DogBreedsListAdapter.DogBreedsV
     override fun getItemCount(): Int {
         return dogBreedsList.size
     }
-
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="dog_breeds_cell_image_height">300dp</dimen>
+    <dimen name="dog_breeds_grid_cell_image_height">150dp</dimen>
     <dimen name="dog_breeds_cell_radius">12dp</dimen>
     <dimen name="dog_breeds_cell_container_margin">10dp</dimen>
     <dimen name="dog_breeds_cell_title_margin">10dp</dimen>

@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">TheDog</string>
+
+    <!-- bottom nav bar -->
     <string name="bottom_nav_list_item">List</string>
     <string name="bottom_nav_search_item">Search</string>
+
+    <!-- tab layout -->
+    <string name="tab_layout_list">List</string>
+    <string name="tab_layout_grid">Grid</string>
+
 </resources>

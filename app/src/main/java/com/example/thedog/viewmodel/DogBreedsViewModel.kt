@@ -1,6 +1,5 @@
 package com.example.thedog.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,9 +19,11 @@ class DogBreedsViewModel(private val repository: DogBreedsRepository = DogBreeds
     private val _dogListLiveData = MutableLiveData<ArrayList<Dog>>(arrayListOf())
     val dogListLiveData: LiveData<ArrayList<Dog>> = _dogListLiveData
 
-    private var _currentPage = 0
-    private var _hasMorePages = true
-    private var _isLoading = false
+    private val _isLoadingLiveData = MutableLiveData(false)
+    val isLoadingLiveData: LiveData<Boolean> = _isLoadingLiveData
+
+    private var currentPage = 0
+    private var hasMorePages = true
 
     init {
         getDogBreeds()
@@ -33,17 +34,17 @@ class DogBreedsViewModel(private val repository: DogBreedsRepository = DogBreeds
      * Default limit is 24 items per page
      * */
     fun getDogBreeds() {
-        if (_hasMorePages && !_isLoading) {
-            _isLoading = true
+        if (hasMorePages && !isLoadingLiveData.value!!) {
+            _isLoadingLiveData.value = true
             viewModelScope.launch {
-                val response = repository.getDogBreeds(page = _currentPage)
-                _isLoading = false
+                val response = repository.getDogBreeds(page = currentPage)
+                _isLoadingLiveData.postValue(false)
                 when (response) {
                     is Resource.Success -> {
                         if (response.data!!.size < 24) {
-                            _hasMorePages = false
+                            hasMorePages = false
                         } else {
-                            _currentPage++
+                            currentPage++
                         }
                         _dogListLiveData.apply {
                             value!!.addAll(response.data)
