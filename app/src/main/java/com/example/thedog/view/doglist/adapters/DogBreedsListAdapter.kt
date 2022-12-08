@@ -3,16 +3,13 @@ package com.example.thedog.view.doglist.adapters
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.RelativeLayout
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.thedog.R
 import com.example.thedog.common.UiUtils
+import com.example.thedog.databinding.DogBreedsCellBinding
 import com.example.thedog.model.data.Dog
 
 /**
@@ -23,37 +20,31 @@ open class DogBreedsListAdapter: RecyclerView.Adapter<DogBreedsListAdapter.DogBr
 
     var dogBreedsList = ArrayList<Dog>(arrayListOf())
 
-    inner class DogBreedsViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val containerView: RelativeLayout
-        val imageView: ImageView
-        val titleView: TextView
+    inner class DogBreedsViewHolder(val binding: DogBreedsCellBinding) : RecyclerView.ViewHolder(binding.root) {
 
         init {
-            containerView = view.findViewById(R.id.view_container)
-            imageView = view.findViewById(R.id.view_image)
-            titleView = view.findViewById(R.id.view_title)
-
-            containerView.apply {
+            binding.viewContainer.apply {
                 clipToOutline = true
-                outlineProvider = UiUtils.createShapeOutlineProvider(view.context.resources.getDimension(R.dimen.dog_breeds_cell_radius))
+                outlineProvider = UiUtils.createShapeOutlineProvider(context.resources.getDimension(R.dimen.dog_breeds_cell_radius))
                 setBackgroundColor(Color.parseColor("#e6e6e6"))
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DogBreedsViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.dog_breeds_cell, parent, false)
-        return DogBreedsViewHolder(view)
+        val binding = DogBreedsCellBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return DogBreedsViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: DogBreedsViewHolder, position: Int) {
-        Glide.with(holder.imageView.context)
+        holder.binding
+        Glide.with(holder.binding.viewImage.context)
             .load(dogBreedsList[position].image.url)
             .centerCrop()
             .placeholder(ColorDrawable(Color.parseColor("#f1f1f1")))
             .transition(DrawableTransitionOptions.withCrossFade())
-            .into(holder.imageView)
-        holder.titleView.text = dogBreedsList[position].name
+            .into(holder.binding.viewImage)
+        holder.binding.viewDogName.text = dogBreedsList[position].name
     }
 
     override fun getItemCount(): Int {
