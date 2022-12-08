@@ -37,7 +37,6 @@ open class DogBreedsListAdapter: RecyclerView.Adapter<DogBreedsListAdapter.DogBr
     }
 
     override fun onBindViewHolder(holder: DogBreedsViewHolder, position: Int) {
-        holder.binding
         Glide.with(holder.binding.viewImage.context)
             .load(dogBreedsList[position].image.url)
             .centerCrop()
