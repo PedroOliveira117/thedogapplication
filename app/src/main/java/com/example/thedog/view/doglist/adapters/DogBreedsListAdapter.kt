@@ -37,12 +37,14 @@ open class DogBreedsListAdapter: RecyclerView.Adapter<DogBreedsListAdapter.DogBr
     }
 
     override fun onBindViewHolder(holder: DogBreedsViewHolder, position: Int) {
-        Glide.with(holder.binding.viewImage.context)
-            .load(dogBreedsList[position].image.url)
-            .centerCrop()
-            .placeholder(ColorDrawable(Color.parseColor("#f1f1f1")))
-            .transition(DrawableTransitionOptions.withCrossFade())
-            .into(holder.binding.viewImage)
+        if (dogBreedsList[position].image != null) {
+            Glide.with(holder.binding.viewImage.context)
+                .load(dogBreedsList[position].image!!.url)
+                .centerCrop()
+                .placeholder(ColorDrawable(Color.parseColor("#f1f1f1")))
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .into(holder.binding.viewImage)
+        }
         holder.binding.viewDogName.text = dogBreedsList[position].name
     }
 

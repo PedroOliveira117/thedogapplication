@@ -21,4 +21,13 @@ class DogBreedsRepository(private val dogBreedsApi: DogBreedsApi) {
         }
         return Resource.Success(response)
     }
+
+    suspend fun searchDogBreed(query: String): Resource<ArrayList<Dog>> {
+        val response = try {
+            dogBreedsApi.searchDogBreed(query)
+        } catch (e: IOException) {
+            return Resource.Error("An error occurred while searching for breed: $query")
+        }
+        return Resource.Success(response)
+    }
 }

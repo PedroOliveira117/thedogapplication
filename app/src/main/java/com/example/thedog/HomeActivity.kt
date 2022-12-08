@@ -2,13 +2,9 @@ package com.example.thedog
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.thedog.databinding.HomeActivityBinding
-import com.example.thedog.view.doglist.fragments.DogBreedsPagerFragment
-import com.example.thedog.view.dogsearch.DogSearchFragment
 
 class HomeActivity: AppCompatActivity() {
 

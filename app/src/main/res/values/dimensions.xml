@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- progress bar -->
+    <dimen name="progress_bar_size">30dp</dimen>
+
+    <!-- dog breeds list -->
     <dimen name="dog_breeds_cell_image_height">300dp</dimen>
     <dimen name="dog_breeds_grid_cell_image_height">150dp</dimen>
     <dimen name="dog_breeds_cell_radius">12dp</dimen>
     <dimen name="dog_breeds_cell_container_margin">10dp</dimen>
     <dimen name="dog_breeds_cell_title_margin">10dp</dimen>
+
+    <!-- dog breeds search -->
+    <dimen name="dog_breeds_search_widget_margin">10dp</dimen>
+    <dimen name="dog_breeds_search_cell_container_margin">10dp</dimen>
+    <dimen name="dog_breeds_search_cell_container_padding">10dp</dimen>
+    <dimen name="dog_breeds_search_cell_textview_margin_top">5dp</dimen>
 </resources>
