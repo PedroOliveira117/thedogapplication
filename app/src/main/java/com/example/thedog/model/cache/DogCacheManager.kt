@@ -48,7 +48,6 @@ object DogCacheManager {
                     dogCacheList.add(DiskCache.getObject(path) as Dog)
                 }
             }
-            return dogCacheList
         }
         return dogCacheList
     }
