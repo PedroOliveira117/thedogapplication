@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.thedog.common.Resource
 import com.example.thedog.model.cache.DogCacheManager
-import com.example.thedog.model.cache.DogCacheManager.DOG_LIST_FILE_PATH
 import com.example.thedog.model.cache.DogCacheManager.DOG_SEARCH_FILE_PATH
 import com.example.thedog.model.data.Dog
 import com.example.thedog.model.repo.DogBreedsRepository
@@ -39,7 +38,7 @@ class DogBreedSearchViewModel(private val repository: DogBreedsRepository = DogB
             when (response) {
                 is Resource.Success -> {
                     _dogSearchListLiveData.postValue(response.data!!)
-                    DogCacheManager.saveInCache(response.data, filePath = DOG_SEARCH_FILE_PATH)
+                    DogCacheManager.saveListInCache(response.data, filePath = DOG_SEARCH_FILE_PATH)
                 }
                 is Resource.Error -> {
                     _dogSearchListLiveData.postValue(DogCacheManager.getFromCacheByBreed(query))

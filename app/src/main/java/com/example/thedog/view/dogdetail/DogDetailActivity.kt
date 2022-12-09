@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.thedog.R
 import com.example.thedog.databinding.DogDetailActivityBinding
+import com.example.thedog.model.cache.DogCacheManager
 
 class DogDetailActivity: AppCompatActivity() {
 
@@ -16,11 +17,16 @@ class DogDetailActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DogDetailActivityBinding.inflate(layoutInflater)
-
         setContentView(binding.root)
+
+        val dogId = intent.extras?.getString(EXTRA_DOG_ID)
+        val dog = DogCacheManager.getFromCacheById(dogId.toString())
 
         binding.viewBackButton.setOnClickListener {
             finish()
+        }
+        if (dog != null) {
+            binding.viewDogDetail.initUI(dog)
         }
     }
 

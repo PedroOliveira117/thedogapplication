@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.thedog.R
 import com.example.thedog.common.UiUtils
 import com.example.thedog.databinding.DogBreedsSearchCellBinding
-import com.example.thedog.model.data.Dog
+import com.example.thedog.model.data.*
 
 /**
  * Created by pedrooliveira on 08/12/2022
@@ -26,7 +26,7 @@ class DogBreedsSearchListAdapter(val onItemClicked: (position: Int) -> Unit): Re
         init {
             binding.viewContainer.apply {
                 clipToOutline = true
-                outlineProvider = UiUtils.createShapeOutlineProvider(context.resources.getDimension(R.dimen.dog_breeds_cell_radius))
+                outlineProvider = UiUtils.createShapeOutlineProvider(context.resources.getDimension(R.dimen.global_cell_radius))
                 setBackgroundColor(Color.parseColor("#e6e6e6"))
             }
         }
@@ -38,6 +38,8 @@ class DogBreedsSearchListAdapter(val onItemClicked: (position: Int) -> Unit): Re
     }
 
     override fun onBindViewHolder(holder: DogBreedsSearchViewHolder, position: Int) {
+        val dog = dogBreedsSearchList[position]
+
         holder.itemView.setOnClickListener {
             onItemClicked.invoke(position)
         }
@@ -45,41 +47,25 @@ class DogBreedsSearchListAdapter(val onItemClicked: (position: Int) -> Unit): Re
         holder.binding.apply {
             viewDogBreedName.apply {
                 val breedNameTitle = resources.getText(R.string.dog_breed_name).toString()
-                val breedName = if (dogBreedsSearchList[position].name?.isNotEmpty() == true) {
-                    dogBreedsSearchList[position].name
-                } else {
-                    resources.getText(R.string.dog_property_none).toString()
-                }
+                val breedName = dog.breedNameDisplay()
                 text = applyBoldToText(breedNameTitle.plus(" $breedName"), breedNameTitle)
             }
 
             viewDogBreedGroup.apply {
                 val breedGroupTitle = resources.getText(R.string.dog_breed_group).toString()
-                val breedGroup = if(dogBreedsSearchList[position].breed_group?.isNotEmpty() == true) {
-                    dogBreedsSearchList[position].breed_group
-                } else {
-                    resources.getText(R.string.dog_property_none).toString()
-                }
+                val breedGroup = dog.breedGroupDisplay()
                 text = applyBoldToText(breedGroupTitle.plus(" $breedGroup"), breedGroupTitle)
             }
 
             viewDogBreedOrigin.apply {
                 val dogOriginTitle = resources.getText(R.string.dog_origin).toString()
-                val dogOrigin = if(dogBreedsSearchList[position].origin?.isNotEmpty() == true) {
-                    dogBreedsSearchList[position].origin
-                } else {
-                    resources.getText(R.string.dog_property_none).toString()
-                }
+                val dogOrigin = dog.originDisplay()
                 text = applyBoldToText(dogOriginTitle.plus(" $dogOrigin"), dogOriginTitle)
             }
 
             viewDogBreedTemperament.apply {
                 val dogTemperamentTitle = resources.getText(R.string.dog_temperament).toString()
-                val dogTemperament = if(dogBreedsSearchList[position].temperament?.isNotEmpty() == true) {
-                    dogBreedsSearchList[position].temperament
-                } else {
-                    resources.getText(R.string.dog_property_none).toString()
-                }
+                val dogTemperament = dog.temperamentDisplay()
                 text = applyBoldToText(dogTemperamentTitle.plus(" $dogTemperament"), dogTemperamentTitle)
             }
         }

@@ -32,7 +32,7 @@ class DogBreedsSearchFragment : Fragment(R.layout.dog_breeds_search_fragment) {
             viewSearch.apply {
                 setBackgroundColor(Color.parseColor("#e6e6e6"))
                 clipToOutline = true
-                outlineProvider = UiUtils.createShapeOutlineProvider(view.context.resources.getDimension(R.dimen.dog_breeds_cell_radius))
+                outlineProvider = UiUtils.createShapeOutlineProvider(view.context.resources.getDimension(R.dimen.global_cell_radius))
                 clearFocus()
 
                 setOnQueryTextListener(object : SearchView.OnQueryTextListener, androidx.appcompat.widget.SearchView.OnQueryTextListener {

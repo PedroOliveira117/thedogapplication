@@ -16,7 +16,7 @@ object DogCacheManager {
      * Receives a list of Dogs and saves each dog item in cache
      * Also saves a list with file paths in cache corresponding to each dog file
      **/
-    fun saveInCache(dogList: ArrayList<Dog>, filePath: String) {
+    fun saveListInCache(dogList: ArrayList<Dog>, filePath: String) {
         if (dogList.isNotEmpty()) {
             val filePathCached = DiskCache.getObject(filePath)
             val filePathList = ArrayList<Any>()
@@ -39,7 +39,7 @@ object DogCacheManager {
     /**
      * Gets from cache a list of dogs corresponding to the filePath received
      * */
-    fun getFromCache(filePath: String): ArrayList<Dog> {
+    fun getListFromCache(filePath: String): ArrayList<Dog> {
         val dogCacheList = ArrayList<Dog>(arrayListOf())
         val filePathCached = DiskCache.getObject(filePath)
         if (filePathCached != null && filePathCached is ArrayList<*>) {
@@ -53,12 +53,24 @@ object DogCacheManager {
     }
 
     /**
+     * Gets from cache a dog corresponding to the dogId received
+     * If not found returns null
+     * */
+    fun getFromCacheById(dogId: String): Dog? {
+        val dog = DiskCache.getObject(dogId + DOG_CACHE_SUFFIX)
+        if (dog is Dog) {
+            return dog
+        }
+        return null
+    }
+
+    /**
      * Gets from cache a list of all dogs matching the breed received
      * Here first search on the list path cache and after on the search path cache and join all results
      * */
     fun getFromCacheByBreed(breed: String): ArrayList<Dog> {
-        val dogListCache = getFromCache(DOG_LIST_FILE_PATH)
-        val dogSearchCache = getFromCache(DOG_SEARCH_FILE_PATH)
+        val dogListCache = getListFromCache(DOG_LIST_FILE_PATH)
+        val dogSearchCache = getListFromCache(DOG_SEARCH_FILE_PATH)
 
         val dogListByBreed = ArrayList<Dog>(arrayListOf())
 

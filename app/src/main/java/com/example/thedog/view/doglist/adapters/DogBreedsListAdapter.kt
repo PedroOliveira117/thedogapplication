@@ -25,7 +25,7 @@ open class DogBreedsListAdapter(val onItemClicked: (position: Int) -> Unit) : Re
         init {
             binding.viewContainer.apply {
                 clipToOutline = true
-                outlineProvider = UiUtils.createShapeOutlineProvider(context.resources.getDimension(R.dimen.dog_breeds_cell_radius))
+                outlineProvider = UiUtils.createShapeOutlineProvider(context.resources.getDimension(R.dimen.global_cell_radius))
                 setBackgroundColor(Color.parseColor("#e6e6e6"))
             }
         }

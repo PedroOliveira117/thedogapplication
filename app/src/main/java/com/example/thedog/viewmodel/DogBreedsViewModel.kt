@@ -54,11 +54,11 @@ class DogBreedsViewModel(private val repository: DogBreedsRepository = DogBreeds
                             value!!.addAll(response.data)
                             postValue(value)
                         }
-                        DogCacheManager.saveInCache(response.data, filePath = DOG_LIST_FILE_PATH)
+                        DogCacheManager.saveListInCache(response.data, filePath = DOG_LIST_FILE_PATH)
                     }
                     is Resource.Error -> {
                         if (currentPage == 0) {
-                            val dogCacheList = DogCacheManager.getFromCache(filePath = DOG_LIST_FILE_PATH)
+                            val dogCacheList = DogCacheManager.getListFromCache(filePath = DOG_LIST_FILE_PATH)
                             currentPage = dogCacheList.size / DOG_BREEDS_REQUEST_LIMIT
                             _dogListLiveData.postValue(dogCacheList)
                         }
