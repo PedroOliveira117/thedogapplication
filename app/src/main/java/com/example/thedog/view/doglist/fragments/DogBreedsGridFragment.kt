@@ -11,6 +11,6 @@ import com.example.thedog.view.doglist.adapters.DogBreedsListAdapter
  */
 class DogBreedsGridFragment: DogBreedsListFragment() {
 
-    override fun generateAdapter(): DogBreedsListAdapter = DogBreedsGridAdapter()
+    override fun generateAdapter(onItemClicked: (position: Int) -> Unit): DogBreedsListAdapter = DogBreedsGridAdapter(onItemClicked)
     override fun generateLayoutManager(): LayoutManager = GridLayoutManager(context, 2)
 }

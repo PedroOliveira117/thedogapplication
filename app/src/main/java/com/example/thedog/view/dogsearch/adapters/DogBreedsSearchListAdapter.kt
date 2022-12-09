@@ -17,7 +17,7 @@ import com.example.thedog.model.data.Dog
  * Created by pedrooliveira on 08/12/2022
  * All rights reserved GoodBarber
  */
-class DogBreedsSearchListAdapter: RecyclerView.Adapter<DogBreedsSearchListAdapter.DogBreedsSearchViewHolder>() {
+class DogBreedsSearchListAdapter(val onItemClicked: (position: Int) -> Unit): RecyclerView.Adapter<DogBreedsSearchListAdapter.DogBreedsSearchViewHolder>() {
 
     var dogBreedsSearchList = ArrayList<Dog>(arrayListOf())
 
@@ -38,6 +38,10 @@ class DogBreedsSearchListAdapter: RecyclerView.Adapter<DogBreedsSearchListAdapte
     }
 
     override fun onBindViewHolder(holder: DogBreedsSearchViewHolder, position: Int) {
+        holder.itemView.setOnClickListener {
+            onItemClicked.invoke(position)
+        }
+
         holder.binding.apply {
             viewDogBreedName.apply {
                 val breedNameTitle = resources.getText(R.string.dog_breed_name).toString()

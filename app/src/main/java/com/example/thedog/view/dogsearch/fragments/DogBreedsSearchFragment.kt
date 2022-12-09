@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.thedog.R
+import com.example.thedog.common.NavigationUtils
 import com.example.thedog.common.UiUtils
 import com.example.thedog.databinding.DogBreedsSearchFragmentBinding
 import com.example.thedog.view.dogsearch.adapters.DogBreedsSearchListAdapter
@@ -50,7 +51,13 @@ class DogBreedsSearchFragment : Fragment(R.layout.dog_breeds_search_fragment) {
             }
 
             viewRecylerview.apply {
-                dogBreedsSearchAdapter = DogBreedsSearchListAdapter()
+                dogBreedsSearchAdapter = DogBreedsSearchListAdapter { position ->
+                    viewModel.dogSearchListLiveData.value?.get(position).let { dog ->
+                        if (dog != null) {
+                            NavigationUtils.navigateToDogDetail(requireActivity(), dog.id.toString())
+                        }
+                    }
+                }
                 adapter = dogBreedsSearchAdapter
                 layoutManager = LinearLayoutManager(context)
             }

@@ -16,7 +16,7 @@ import com.example.thedog.model.data.Dog
  * Created by pedrooliveira on 07/12/2022
  * All rights reserved GoodBarber
  */
-open class DogBreedsListAdapter: RecyclerView.Adapter<DogBreedsListAdapter.DogBreedsViewHolder>() {
+open class DogBreedsListAdapter(val onItemClicked: (position: Int) -> Unit) : RecyclerView.Adapter<DogBreedsListAdapter.DogBreedsViewHolder>() {
 
     var dogBreedsList = ArrayList<Dog>(arrayListOf())
 
@@ -37,6 +37,10 @@ open class DogBreedsListAdapter: RecyclerView.Adapter<DogBreedsListAdapter.DogBr
     }
 
     override fun onBindViewHolder(holder: DogBreedsViewHolder, position: Int) {
+        holder.itemView.setOnClickListener {
+            onItemClicked.invoke(position)
+        }
+
         if (dogBreedsList[position].image != null) {
             Glide.with(holder.binding.viewImage.context)
                 .load(dogBreedsList[position].image!!.url)

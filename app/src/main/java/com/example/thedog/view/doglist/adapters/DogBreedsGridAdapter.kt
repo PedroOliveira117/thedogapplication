@@ -7,7 +7,7 @@ import com.example.thedog.R
  * Created by pedrooliveira on 08/12/2022
  * All rights reserved GoodBarber
  */
-class DogBreedsGridAdapter: DogBreedsListAdapter() {
+class DogBreedsGridAdapter(onItemClicked: (position: Int) -> Unit): DogBreedsListAdapter(onItemClicked) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DogBreedsViewHolder {
         return super.onCreateViewHolder(parent, viewType).apply {

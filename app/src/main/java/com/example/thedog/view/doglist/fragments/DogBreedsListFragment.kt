@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.example.thedog.R
+import com.example.thedog.common.NavigationUtils
 import com.example.thedog.databinding.DogBreedsListFragmentBinding
 import com.example.thedog.view.doglist.adapters.DogBreedsListAdapter
 import com.example.thedog.viewmodel.DogBreedsViewModel
@@ -28,7 +29,13 @@ open class DogBreedsListFragment: Fragment(R.layout.dog_breeds_list_fragment) {
         binding = DogBreedsListFragmentBinding.bind(view)
 
         binding.viewRecylerview.apply {
-            dogBreedsAdapter = generateAdapter()
+            dogBreedsAdapter = generateAdapter { position ->
+                viewModel.dogListLiveData.value?.get(position).let { dog ->
+                    if (dog != null) {
+                        NavigationUtils.navigateToDogDetail(requireActivity(), dog.id.toString())
+                    }
+                }
+            }
             adapter = dogBreedsAdapter
             layoutManager = generateLayoutManager()
 
@@ -75,5 +82,5 @@ open class DogBreedsListFragment: Fragment(R.layout.dog_breeds_list_fragment) {
 
     open fun generateLayoutManager(): LayoutManager = LinearLayoutManager(context)
 
-    open fun generateAdapter(): DogBreedsListAdapter = DogBreedsListAdapter()
+    open fun generateAdapter(onItemClicked: (position: Int) -> Unit): DogBreedsListAdapter = DogBreedsListAdapter(onItemClicked = onItemClicked)
 }
