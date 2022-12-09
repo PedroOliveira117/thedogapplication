@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,16 +12,19 @@
 
         <ImageView
             android:id="@+id/view_image_search"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="@dimen/dog_breeds_search_empty_icon_size"
+            android:layout_height="@dimen/dog_breeds_search_empty_icon_size"
+            android:layout_gravity="center"
             android:src="@drawable/ic_search"
-            android:layout_gravity="center"/>
+            app:tint="@color/app_text_color" />
 
         <TextView
             android:id="@+id/view_search_not_found"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="@dimen/dog_breeds_search_empty_title_size"
+            android:textColor="@color/app_text_color"/>
 
     </LinearLayout>
 

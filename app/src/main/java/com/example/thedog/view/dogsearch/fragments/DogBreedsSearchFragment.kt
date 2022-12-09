@@ -29,8 +29,9 @@ class DogBreedsSearchFragment : Fragment(R.layout.dog_breeds_search_fragment) {
         binding = DogBreedsSearchFragmentBinding.bind(view)
 
         binding.apply {
+
+            // Search Bar
             viewSearch.apply {
-                setBackgroundColor(Color.parseColor("#e6e6e6"))
                 clipToOutline = true
                 outlineProvider = UiUtils.createShapeOutlineProvider(view.context.resources.getDimension(R.dimen.global_cell_radius))
                 clearFocus()
@@ -50,6 +51,7 @@ class DogBreedsSearchFragment : Fragment(R.layout.dog_breeds_search_fragment) {
                 })
             }
 
+            // Recyclerview for search results
             viewRecylerview.apply {
                 dogBreedsSearchAdapter = DogBreedsSearchListAdapter { position ->
                     viewModel.dogSearchListLiveData.value?.get(position).let { dog ->

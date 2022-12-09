@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/app_list_color"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.dogdetail.DogDetailActivity">
@@ -24,6 +26,7 @@
                 android:layout_height="@dimen/dog_detail_view_back_icon_size"
                 android:layout_marginStart="@dimen/dog_detail_view_margins"
                 android:layout_marginTop="@dimen/dog_detail_view_margins"
+                app:tint="@color/app_text_color"
                 android:background="@null"
                 android:src="@drawable/ic_back_arrow" />
 

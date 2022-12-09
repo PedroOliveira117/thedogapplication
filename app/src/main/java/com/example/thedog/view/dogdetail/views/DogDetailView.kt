@@ -26,7 +26,6 @@ class DogDetailView: RelativeLayout {
         binding.viewDescriptionContainer.apply {
             clipToOutline = true
             outlineProvider = UiUtils.createShapeOutlineProvider(context.resources.getDimension(R.dimen.global_cell_radius))
-            setBackgroundColor(Color.parseColor("#e6e6e6"))
         }
     }
 

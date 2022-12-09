@@ -1,6 +1,5 @@
 package com.example.thedog.view.dogsearch.adapters
 
-import android.graphics.Color
 import android.graphics.Typeface
 import android.text.SpannableStringBuilder
 import android.text.Spanned
@@ -27,7 +26,6 @@ class DogBreedsSearchListAdapter(val onItemClicked: (position: Int) -> Unit): Re
             binding.viewContainer.apply {
                 clipToOutline = true
                 outlineProvider = UiUtils.createShapeOutlineProvider(context.resources.getDimension(R.dimen.global_cell_radius))
-                setBackgroundColor(Color.parseColor("#e6e6e6"))
             }
         }
     }
@@ -45,24 +43,29 @@ class DogBreedsSearchListAdapter(val onItemClicked: (position: Int) -> Unit): Re
         }
 
         holder.binding.apply {
+
+            // Dog Breed
             viewDogBreedName.apply {
                 val breedNameTitle = resources.getText(R.string.dog_breed_name).toString()
                 val breedName = dog.breedNameDisplay()
                 text = applyBoldToText(breedNameTitle.plus(" $breedName"), breedNameTitle)
             }
 
+            // Dog Breed Group
             viewDogBreedGroup.apply {
                 val breedGroupTitle = resources.getText(R.string.dog_breed_group).toString()
                 val breedGroup = dog.breedGroupDisplay()
                 text = applyBoldToText(breedGroupTitle.plus(" $breedGroup"), breedGroupTitle)
             }
 
+            // Dog Breed Origin
             viewDogBreedOrigin.apply {
                 val dogOriginTitle = resources.getText(R.string.dog_origin).toString()
                 val dogOrigin = dog.originDisplay()
                 text = applyBoldToText(dogOriginTitle.plus(" $dogOrigin"), dogOriginTitle)
             }
 
+            // Dog Breed Temperament
             viewDogBreedTemperament.apply {
                 val dogTemperamentTitle = resources.getText(R.string.dog_temperament).toString()
                 val dogTemperament = dog.temperamentDisplay()

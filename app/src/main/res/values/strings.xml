@@ -14,7 +14,7 @@
     <string name="dog_breeds_search_no_result">No result found for:</string>
 
     <!-- dog properities display -->
-    <string name="dog_breed_name">Breed Name:</string>
+    <string name="dog_breed_name">Breed:</string>
     <string name="dog_breed_group">Breed Group:</string>
     <string name="dog_origin">Origin:</string>
     <string name="dog_temperament">Temperament:</string>

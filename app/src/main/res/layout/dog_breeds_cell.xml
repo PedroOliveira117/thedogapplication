@@ -3,6 +3,7 @@
     android:id="@+id/view_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/app_cell_color"
     android:layout_margin="@dimen/dog_breeds_cell_container_margin">
 
     <ImageView
@@ -15,6 +16,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dog_breeds_cell_title_margin"
+        android:textSize="@dimen/dog_breeds_cell_title_size"
+        android:textStyle="bold"
+        android:textColor="@color/app_text_color"
         android:layout_below="@+id/view_image" />
 
 </RelativeLayout>

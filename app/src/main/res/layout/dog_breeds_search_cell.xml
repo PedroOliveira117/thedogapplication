@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center_vertical"
+    android:background="@color/app_cell_color"
     android:orientation="vertical"
     android:layout_margin="@dimen/dog_breeds_search_cell_container_margin"
     android:padding="@dimen/dog_breeds_search_cell_container_padding">
@@ -11,24 +12,32 @@
     <TextView
         android:id="@+id/view_dog_breed_name"
         android:layout_width="match_parent"
+        android:textSize="@dimen/dog_breeds_search_cell_title_size"
+        android:textColor="@color/app_text_color"
         android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/view_dog_breed_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="@dimen/dog_breeds_search_cell_title_size"
+        android:textColor="@color/app_text_color"
         android:layout_marginTop="@dimen/dog_breeds_search_cell_textview_margin_top"/>
 
     <TextView
         android:id="@+id/view_dog_breed_origin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="@dimen/dog_breeds_search_cell_title_size"
+        android:textColor="@color/app_text_color"
         android:layout_marginTop="@dimen/dog_breeds_search_cell_textview_margin_top"/>
 
     <TextView
         android:id="@+id/view_dog_breed_temperament"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/app_text_color"
+        android:textSize="@dimen/dog_breeds_search_cell_title_size"
         android:layout_marginTop="@dimen/dog_breeds_search_cell_textview_margin_top"/>
 
 </LinearLayout>

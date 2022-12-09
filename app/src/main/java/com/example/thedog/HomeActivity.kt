@@ -1,7 +1,11 @@
 package com.example.thedog
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.thedog.databinding.HomeActivityBinding
@@ -20,6 +24,15 @@ class HomeActivity: AppCompatActivity() {
             R.id.view_container
         ) as NavHostFragment
 
-        binding.viewBottomNavigation.setupWithNavController(navbarHost.navController)
+        val states = arrayOf(intArrayOf(-android.R.attr.state_selected), intArrayOf(android.R.attr.state_selected))
+        val statesColor = intArrayOf(Color.parseColor("#8c8c8c"), ContextCompat.getColor(applicationContext, R.color.app_text_color))
+
+        // Bottom Navigation
+        binding.viewBottomNavigation.apply {
+            itemTextColor = ColorStateList(states, statesColor)
+            itemIconTintList = ColorStateList(states, statesColor)
+            itemRippleColor = null
+            setupWithNavController(navbarHost.navController)
+        }
     }
 }

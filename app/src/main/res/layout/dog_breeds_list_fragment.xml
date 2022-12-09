@@ -3,6 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/view_recylerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_list_color"/>
+
     <ProgressBar
         android:id="@+id/view_progress_bar"
         android:layout_width="@dimen/progress_bar_size"
@@ -10,10 +16,5 @@
         android:layout_centerInParent="true"
         android:indeterminate="true"
         android:visibility="gone" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/view_recylerview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 </RelativeLayout>

@@ -2,7 +2,7 @@
 <resources>
 
     <!-- global cell radius -->
-    <dimen name="global_cell_radius">12dp</dimen>
+    <dimen name="global_cell_radius">8dp</dimen>
 
     <!-- progress bar -->
     <dimen name="progress_bar_size">30dp</dimen>
@@ -12,12 +12,18 @@
     <dimen name="dog_breeds_grid_cell_image_height">150dp</dimen>
     <dimen name="dog_breeds_cell_container_margin">10dp</dimen>
     <dimen name="dog_breeds_cell_title_margin">10dp</dimen>
+    <dimen name="dog_breeds_cell_title_size">18sp</dimen>
 
     <!-- dog breeds search -->
     <dimen name="dog_breeds_search_widget_margin">10dp</dimen>
     <dimen name="dog_breeds_search_cell_container_margin">10dp</dimen>
     <dimen name="dog_breeds_search_cell_container_padding">10dp</dimen>
     <dimen name="dog_breeds_search_cell_textview_margin_top">5dp</dimen>
+    <dimen name="dog_breeds_search_cell_title_size">18sp</dimen>
+
+    <!-- dog breeds empty screach screen -->
+    <dimen name="dog_breeds_search_empty_icon_size">80sp</dimen>
+    <dimen name="dog_breeds_search_empty_title_size">20sp</dimen>
 
     <!-- dog detail view -->
     <dimen name="dog_detail_view_back_icon_size">40dp</dimen>

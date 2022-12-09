@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -26,7 +27,6 @@ open class DogBreedsListAdapter(val onItemClicked: (position: Int) -> Unit) : Re
             binding.viewContainer.apply {
                 clipToOutline = true
                 outlineProvider = UiUtils.createShapeOutlineProvider(context.resources.getDimension(R.dimen.global_cell_radius))
-                setBackgroundColor(Color.parseColor("#e6e6e6"))
             }
         }
     }
@@ -41,14 +41,16 @@ open class DogBreedsListAdapter(val onItemClicked: (position: Int) -> Unit) : Re
             onItemClicked.invoke(position)
         }
 
+        // Dog Image
         if (dogBreedsList[position].image != null) {
             Glide.with(holder.binding.viewImage.context)
                 .load(dogBreedsList[position].image!!.url)
                 .centerCrop()
-                .placeholder(ColorDrawable(Color.parseColor("#f1f1f1")))
+                .placeholder(ColorDrawable(Color.parseColor("#f3d5a5")))
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(holder.binding.viewImage)
         }
+        // Dog Breed
         holder.binding.viewDogName.text = dogBreedsList[position].name
     }
 

@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_list_color"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ProgressBar
@@ -17,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dog_breeds_search_widget_margin"
+        android:background="@color/app_cell_color"
         app:iconifiedByDefault="false"
         app:queryBackground="@android:color/transparent"
         app:queryHint="@string/dog_breeds_search_query_hint"/>
