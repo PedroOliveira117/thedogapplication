@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/view_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dog_detail_view_image_height"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_dog_detail" />
+
+    <LinearLayout
+        android:id="@+id/view_description_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_image"
+        android:layout_margin="@dimen/dog_detail_view_container_margin"
+        android:padding="@dimen/dog_detail_view_container_margin"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="@string/dog_breed_name" />
+
+        <TextView
+            android:id="@+id/view_dog_breed_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/dog_detail_view_content_size"
+            android:layout_marginTop="@dimen/dog_detail_view_content_vertical_margin"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="@string/dog_breed_group"
+            android:layout_marginTop="@dimen/dog_detail_view_titles_vertical_margin"/>
+
+        <TextView
+            android:id="@+id/view_dog_breed_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/dog_detail_view_content_size"
+            android:layout_marginTop="@dimen/dog_detail_view_content_vertical_margin"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dog_origin"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/dog_detail_view_titles_vertical_margin"/>
+
+        <TextView
+            android:id="@+id/view_dog_origin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/dog_detail_view_content_size"
+            android:layout_marginTop="@dimen/dog_detail_view_content_vertical_margin"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dog_temperament"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/dog_detail_view_titles_vertical_margin"/>
+
+        <TextView
+            android:id="@+id/view_dog_breed_temperament"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/dog_detail_view_content_size"
+            android:layout_marginTop="@dimen/dog_detail_view_content_vertical_margin"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

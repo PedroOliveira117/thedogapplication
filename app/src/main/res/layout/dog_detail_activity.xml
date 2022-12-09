@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.dogdetail.DogDetailActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.example.thedog.view.dogdetail.views.DogDetailView
+                android:id="@+id/view_dog_detail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ImageButton
+                android:id="@+id/view_back_button"
+                android:layout_width="@dimen/dog_detail_view_back_icon_size"
+                android:layout_height="@dimen/dog_detail_view_back_icon_size"
+                android:layout_marginStart="@dimen/dog_detail_view_margins"
+                android:layout_marginTop="@dimen/dog_detail_view_margins"
+                android:background="@null"
+                android:src="@drawable/ic_back_arrow" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

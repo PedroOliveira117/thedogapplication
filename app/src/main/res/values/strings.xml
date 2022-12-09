@@ -1,5 +1,23 @@
 <resources>
     <string name="app_name">TheDog</string>
+
+    <!-- bottom nav bar -->
     <string name="bottom_nav_list_item">List</string>
     <string name="bottom_nav_search_item">Search</string>
+
+    <!-- tab layout -->
+    <string name="tab_layout_list">List</string>
+    <string name="tab_layout_grid">Grid</string>
+
+    <!-- search screen -->
+    <string name="dog_breeds_search_query_hint">Search dog breeds</string>
+    <string name="dog_breeds_search_no_result">No result found for:</string>
+
+    <!-- dog properities display -->
+    <string name="dog_breed_name">Breed Name:</string>
+    <string name="dog_breed_group">Breed Group:</string>
+    <string name="dog_origin">Origin:</string>
+    <string name="dog_temperament">Temperament:</string>
+    <string name="dog_property_none">None</string>
+
 </resources>
