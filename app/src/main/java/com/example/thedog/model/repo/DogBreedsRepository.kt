@@ -11,9 +11,7 @@ import java.io.IOException
  */
 class DogBreedsRepository(private val dogBreedsApi: DogBreedsApi) {
 
-    private val DOG_BREEDS_REQUEST_LIMIT = 24
-
-    suspend fun getDogBreeds(limit: Int = DOG_BREEDS_REQUEST_LIMIT, page: Int): Resource<ArrayList<Dog>> {
+    suspend fun getDogBreeds(limit: Int, page: Int): Resource<ArrayList<Dog>> {
         val response = try {
             dogBreedsApi.getDogBreeds(limit, page)
         } catch (e: IOException) {
