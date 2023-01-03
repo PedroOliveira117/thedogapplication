@@ -2,9 +2,11 @@ package com.example.thedog.view.dogdetail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.lifecycleScope
 import com.example.thedog.R
 import com.example.thedog.databinding.DogDetailActivityBinding
-import com.example.thedog.model.cache.DogCacheManager
+import com.example.thedog.model.cache.DogDatabase
+import kotlinx.coroutines.launch
 
 class DogDetailActivity: AppCompatActivity() {
 
@@ -20,13 +22,14 @@ class DogDetailActivity: AppCompatActivity() {
         setContentView(binding.root)
 
         val dogId = intent.extras?.getString(EXTRA_DOG_ID)
-        val dog = DogCacheManager.getFromCacheById(dogId.toString())
+
+        lifecycleScope.launch {
+            val dog = DogDatabase.getDatabase(applicationContext).dogDao().getDogById(dogId.toString())
+            binding.viewDogDetail.initUI(dog)
+        }
 
         binding.viewBackButton.setOnClickListener {
             finish()
-        }
-        if (dog != null) {
-            binding.viewDogDetail.initUI(dog)
         }
     }
 

@@ -4,9 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.thedog.common.Resource
-import com.example.thedog.model.cache.DogCacheManager
-import com.example.thedog.model.cache.DogCacheManager.DOG_SEARCH_FILE_PATH
+import com.example.thedog.TheDogApplication
+import com.example.thedog.model.cache.DogDatabase
 import com.example.thedog.model.data.Dog
 import com.example.thedog.model.repo.DogBreedsRepository
 import com.example.thedog.network.RetrofitInstance
@@ -16,7 +15,7 @@ import kotlinx.coroutines.launch
  * Created by pedrooliveira on 08/12/2022
  * All rights reserved GoodBarber
  */
-class DogBreedSearchViewModel(private val repository: DogBreedsRepository = DogBreedsRepository(dogBreedsApi = RetrofitInstance.dogBreedsApi)): ViewModel() {
+class DogBreedSearchViewModel(private val repository: DogBreedsRepository = DogBreedsRepository(dogBreedsApi = RetrofitInstance.dogBreedsApi, dogDao = DogDatabase.getDatabase(TheDogApplication.initialize.applicationContext).dogDao())): ViewModel() {
 
     private val _dogSearchListLiveData = MutableLiveData<ArrayList<Dog>>(arrayListOf())
     val dogSearchListLiveData: LiveData<ArrayList<Dog>> = _dogSearchListLiveData
@@ -35,14 +34,8 @@ class DogBreedSearchViewModel(private val repository: DogBreedsRepository = DogB
         viewModelScope.launch {
             val response = repository.searchDogBreed(query)
             _isLoadingLiveData.postValue(false)
-            when (response) {
-                is Resource.Success -> {
-                    _dogSearchListLiveData.postValue(response.data!!)
-                    DogCacheManager.saveListInCache(response.data, filePath = DOG_SEARCH_FILE_PATH)
-                }
-                is Resource.Error -> {
-                    _dogSearchListLiveData.postValue(DogCacheManager.getFromCacheByBreed(query))
-                }
+            response.data?.let { data ->
+                _dogSearchListLiveData.postValue(data)
             }
         }
     }

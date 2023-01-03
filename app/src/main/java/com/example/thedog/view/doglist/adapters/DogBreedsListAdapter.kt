@@ -42,14 +42,13 @@ open class DogBreedsListAdapter(val onItemClicked: (position: Int) -> Unit) : Re
         }
 
         // Dog Image
-        if (dogBreedsList[position].image != null) {
-            Glide.with(holder.binding.viewImage.context)
-                .load(dogBreedsList[position].image!!.url)
-                .centerCrop()
-                .placeholder(ColorDrawable(Color.parseColor("#f3d5a5")))
-                .transition(DrawableTransitionOptions.withCrossFade())
-                .into(holder.binding.viewImage)
-        }
+        Glide.with(holder.binding.viewImage.context)
+            .load(dogBreedsList[position].image?.url ?: "")
+            .centerCrop()
+            .placeholder(ColorDrawable(Color.parseColor("#f3d5a5")))
+            .transition(DrawableTransitionOptions.withCrossFade())
+            .into(holder.binding.viewImage)
+
         // Dog Breed
         holder.binding.viewDogName.text = dogBreedsList[position].name
     }

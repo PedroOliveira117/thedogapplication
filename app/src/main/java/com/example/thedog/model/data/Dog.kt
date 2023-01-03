@@ -1,12 +1,19 @@
 package com.example.thedog.model.data
 
+import androidx.room.ColumnInfo
+import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.example.thedog.R
 import com.example.thedog.TheDogApplication
 import java.io.Serializable
 
+@Entity(tableName = "dog_database")
 data class Dog(
     val breed_group: String?,
+    @PrimaryKey
     val id: Int,
+    @Embedded(prefix = "image_")
     val image: Image?,
     val name: String?,
     val origin: String?,

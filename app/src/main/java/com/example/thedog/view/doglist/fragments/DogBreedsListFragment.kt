@@ -61,10 +61,12 @@ open class DogBreedsListFragment: Fragment(R.layout.dog_breeds_list_fragment) {
         viewModel.apply {
             // Observe is Loading to display progress bar when list is empty
             isLoadingLiveData.observe(viewLifecycleOwner) { isLoading ->
-                if (isLoading && dogListLiveData.value!!.isEmpty()) {
-                    binding.viewProgressBar.visibility = View.VISIBLE
-                } else {
-                    binding.viewProgressBar.visibility = View.GONE
+                dogListLiveData.value?.let { list ->
+                    if (isLoading && list.isEmpty()) {
+                        binding.viewProgressBar.visibility = View.VISIBLE
+                    } else {
+                        binding.viewProgressBar.visibility = View.GONE
+                    }
                 }
             }
 
