@@ -1,6 +1,5 @@
 package com.example.thedog.view.dogsearch.fragments
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.SearchView
@@ -13,11 +12,13 @@ import com.example.thedog.common.UiUtils
 import com.example.thedog.databinding.DogBreedsSearchFragmentBinding
 import com.example.thedog.view.dogsearch.adapters.DogBreedsSearchListAdapter
 import com.example.thedog.viewmodel.DogBreedSearchViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * Created by pedrooliveira on 07/12/2022
  * All rights reserved GoodBarber
  */
+@AndroidEntryPoint
 class DogBreedsSearchFragment : Fragment(R.layout.dog_breeds_search_fragment) {
 
     private lateinit var binding: DogBreedsSearchFragmentBinding

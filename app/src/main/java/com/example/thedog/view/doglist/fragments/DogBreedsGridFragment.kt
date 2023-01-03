@@ -4,11 +4,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.example.thedog.view.doglist.adapters.DogBreedsGridAdapter
 import com.example.thedog.view.doglist.adapters.DogBreedsListAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * Created by pedrooliveira on 07/12/2022
  * All rights reserved GoodBarber
  */
+@AndroidEntryPoint
 class DogBreedsGridFragment: DogBreedsListFragment() {
 
     override fun generateAdapter(onItemClicked: (position: Int) -> Unit): DogBreedsListAdapter = DogBreedsGridAdapter(onItemClicked)

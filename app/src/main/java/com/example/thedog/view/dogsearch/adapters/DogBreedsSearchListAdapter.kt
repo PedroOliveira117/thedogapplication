@@ -47,28 +47,28 @@ class DogBreedsSearchListAdapter(val onItemClicked: (position: Int) -> Unit): Re
             // Dog Breed
             viewDogBreedName.apply {
                 val breedNameTitle = resources.getText(R.string.dog_breed_name).toString()
-                val breedName = dog.breedNameDisplay()
+                val breedName = dog.breedNameDisplay(context)
                 text = applyBoldToText(breedNameTitle.plus(" $breedName"), breedNameTitle)
             }
 
             // Dog Breed Group
             viewDogBreedGroup.apply {
                 val breedGroupTitle = resources.getText(R.string.dog_breed_group).toString()
-                val breedGroup = dog.breedGroupDisplay()
+                val breedGroup = dog.breedGroupDisplay(context)
                 text = applyBoldToText(breedGroupTitle.plus(" $breedGroup"), breedGroupTitle)
             }
 
             // Dog Breed Origin
             viewDogBreedOrigin.apply {
                 val dogOriginTitle = resources.getText(R.string.dog_origin).toString()
-                val dogOrigin = dog.originDisplay()
+                val dogOrigin = dog.originDisplay(context)
                 text = applyBoldToText(dogOriginTitle.plus(" $dogOrigin"), dogOriginTitle)
             }
 
             // Dog Breed Temperament
             viewDogBreedTemperament.apply {
                 val dogTemperamentTitle = resources.getText(R.string.dog_temperament).toString()
-                val dogTemperament = dog.temperamentDisplay()
+                val dogTemperament = dog.temperamentDisplay(context)
                 text = applyBoldToText(dogTemperamentTitle.plus(" $dogTemperament"), dogTemperamentTitle)
             }
         }

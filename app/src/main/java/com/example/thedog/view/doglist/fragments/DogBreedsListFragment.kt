@@ -12,12 +12,14 @@ import com.example.thedog.common.NavigationUtils
 import com.example.thedog.databinding.DogBreedsListFragmentBinding
 import com.example.thedog.view.doglist.adapters.DogBreedsListAdapter
 import com.example.thedog.viewmodel.DogBreedsViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 
 /**
  * Created by pedrooliveira on 07/12/2022
  * All rights reserved GoodBarber
  */
+@AndroidEntryPoint
 open class DogBreedsListFragment: Fragment(R.layout.dog_breeds_list_fragment) {
 
     private lateinit var binding: DogBreedsListFragmentBinding

@@ -6,8 +6,11 @@ import androidx.lifecycle.lifecycleScope
 import com.example.thedog.R
 import com.example.thedog.databinding.DogDetailActivityBinding
 import com.example.thedog.model.cache.DogDatabase
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class DogDetailActivity: AppCompatActivity() {
 
     companion object {
@@ -15,6 +18,7 @@ class DogDetailActivity: AppCompatActivity() {
     }
 
     private lateinit var binding: DogDetailActivityBinding
+    @Inject lateinit var dogDataBase: DogDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +28,7 @@ class DogDetailActivity: AppCompatActivity() {
         val dogId = intent.extras?.getString(EXTRA_DOG_ID)
 
         lifecycleScope.launch {
-            val dog = DogDatabase.getDatabase(applicationContext).dogDao().getDogById(dogId.toString())
+            val dog = dogDataBase.dogDao().getDogById(dogId.toString())
             binding.viewDogDetail.initUI(dog)
         }
 

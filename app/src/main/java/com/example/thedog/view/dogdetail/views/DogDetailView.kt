@@ -33,16 +33,16 @@ class DogDetailView: RelativeLayout {
         binding.apply {
 
             // Dog Breed Name
-            viewDogBreedName.text = dog.breedNameDisplay()
+            viewDogBreedName.text = dog.breedNameDisplay(context)
 
             // Dog Breed Group
-            viewDogBreedGroup.text = dog.breedGroupDisplay()
+            viewDogBreedGroup.text = dog.breedGroupDisplay(context)
 
             // Dog Origin
-            viewDogOrigin.text = dog.originDisplay()
+            viewDogOrigin.text = dog.originDisplay(context)
 
             // Dog Temperament
-            viewDogBreedTemperament.text = dog.temperamentDisplay()
+            viewDogBreedTemperament.text = dog.temperamentDisplay(context)
         }
     }
 }

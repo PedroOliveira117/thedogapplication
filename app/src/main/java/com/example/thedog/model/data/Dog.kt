@@ -1,11 +1,10 @@
 package com.example.thedog.model.data
 
-import androidx.room.ColumnInfo
+import android.content.Context
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.thedog.R
-import com.example.thedog.TheDogApplication
 import java.io.Serializable
 
 @Entity(tableName = "dog_database")
@@ -20,34 +19,34 @@ data class Dog(
     val temperament: String?,
 ) : Serializable
 
-fun Dog.breedNameDisplay(): String {
+fun Dog.breedNameDisplay(context: Context): String {
     return if (name?.isNotEmpty() == true) {
         name
     } else {
-        TheDogApplication.initialize.resources.getText(R.string.dog_property_none).toString()
+        context.resources.getText(R.string.dog_property_none).toString()
     }
 }
 
-fun Dog.breedGroupDisplay(): String {
+fun Dog.breedGroupDisplay(context: Context): String {
     return if (breed_group?.isNotEmpty() == true) {
         breed_group
     } else {
-        TheDogApplication.initialize.resources.getText(R.string.dog_property_none).toString()
+        context.getText(R.string.dog_property_none).toString()
     }
 }
 
-fun Dog.originDisplay(): String {
+fun Dog.originDisplay(context: Context): String {
     return if (origin?.isNotEmpty() == true) {
         origin
     } else {
-        TheDogApplication.initialize.resources.getText(R.string.dog_property_none).toString()
+        context.getText(R.string.dog_property_none).toString()
     }
 }
 
-fun Dog.temperamentDisplay(): String {
+fun Dog.temperamentDisplay(context: Context): String {
     return if (temperament?.isNotEmpty() == true) {
         temperament
     } else {
-        TheDogApplication.initialize.resources.getText(R.string.dog_property_none).toString()
+        context.getText(R.string.dog_property_none).toString()
     }
 }

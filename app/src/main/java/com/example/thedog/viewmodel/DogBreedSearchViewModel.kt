@@ -4,18 +4,19 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.thedog.TheDogApplication
-import com.example.thedog.model.cache.DogDatabase
 import com.example.thedog.model.data.Dog
 import com.example.thedog.model.repo.DogBreedsRepository
-import com.example.thedog.network.RetrofitInstance
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 /**
  * Created by pedrooliveira on 08/12/2022
  * All rights reserved GoodBarber
  */
-class DogBreedSearchViewModel(private val repository: DogBreedsRepository = DogBreedsRepository(dogBreedsApi = RetrofitInstance.dogBreedsApi, dogDao = DogDatabase.getDatabase(TheDogApplication.initialize.applicationContext).dogDao())): ViewModel() {
+
+@HiltViewModel
+class DogBreedSearchViewModel @Inject constructor(private val repository: DogBreedsRepository): ViewModel() {
 
     private val _dogSearchListLiveData = MutableLiveData<ArrayList<Dog>>(arrayListOf())
     val dogSearchListLiveData: LiveData<ArrayList<Dog>> = _dogSearchListLiveData
