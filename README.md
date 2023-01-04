@@ -15,4 +15,5 @@
 - Dagger Hilt for depencency injection
 - Retrofit
 - Glide
+- Room for cache
 - MVVM Architecture
