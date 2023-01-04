@@ -1,5 +1,6 @@
 # The Dog Application
 Dog Application using TheDogApi - https://thedogapi.com/
+# Preview
 <p float="left">
   <img src="https://user-images.githubusercontent.com/60933239/210607935-d9244433-0d4f-4f44-a3ed-23240ea03d00.png" width="300" />
   <img src="https://user-images.githubusercontent.com/60933239/210608063-589053e8-eef1-4cbf-87c8-e9d1660d8479.png" width="300" /> 
